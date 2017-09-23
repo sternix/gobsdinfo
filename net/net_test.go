@@ -10,3 +10,10 @@ func TestMbuf(t *testing.T) {
 		t.Error(err)
 	}
 }
+
+func TestIsr(t *testing.T) {
+	_, err := Isrs()
+	if err != nil {
+		t.Error(err)
+	}
+}

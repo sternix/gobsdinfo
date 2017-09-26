@@ -24,3 +24,10 @@ func TestIfStat(t *testing.T) {
 		t.Error(err)
 	}
 }
+
+func TestUnixSocketStat(t *testing.T) {
+	_, err := UnixSocketStats()
+	if err != nil {
+		t.Error(err)
+	}
+}

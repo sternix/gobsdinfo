@@ -22,7 +22,7 @@ type IfStat struct {
 
 type jIfStat struct {
 	Stats struct {
-		IfStats []IfStat
+		IfStats []IfStat `json:"interface"`
 	} `json:"statistics"`
 }
 

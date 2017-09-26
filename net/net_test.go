@@ -17,3 +17,10 @@ func TestIsr(t *testing.T) {
 		t.Error(err)
 	}
 }
+
+func TestIfStat(t *testing.T) {
+	_, err := IfStats()
+	if err != nil {
+		t.Error(err)
+	}
+}

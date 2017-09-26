@@ -17,6 +17,7 @@ type IfStat struct {
 	SentBytes        uint64 `json:"sent-bytes"`
 	Collisions       uint64 `json:"collisions,omitempty"`
 	// Bug duplicate key dropped-packets, reported FreeBSD developer via email
+	// -n omitted for now
 	//OutDroppedPackets uint64 `json:"dropped-packets,omitempty"`
 }
 
@@ -28,7 +29,8 @@ type jIfStat struct {
 
 func IfStats() ([]IfStat, error) {
 	var ifstat jIfStat
-	if err := util.ExecAndParse(&ifstat, "/usr/bin/netstat", "-i", "-b", "-d", "-n", "-W"); err != nil {
+	//if err := util.ExecAndParse(&ifstat, "/usr/bin/netstat", "-i", "-b", "-d", "-n", "-W"); err != nil { // -n omitted for now
+	if err := util.ExecAndParse(&ifstat, "/usr/bin/netstat", "-i", "-b", "-d", "-W"); err != nil {
 		return nil, err
 	}
 	return ifstat.Stats.IfStats, nil

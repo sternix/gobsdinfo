@@ -31,3 +31,17 @@ func TestUnixSocketStat(t *testing.T) {
 		t.Error(err)
 	}
 }
+
+func TestInetSocketStat(t *testing.T) {
+	_, err := InetSocketStats()
+	if err != nil {
+		t.Error(err)
+	}
+}
+
+func Test6InetSocketStat(t *testing.T) {
+	_, err := Inet6SocketStats()
+	if err != nil {
+		t.Error(err)
+	}
+}
